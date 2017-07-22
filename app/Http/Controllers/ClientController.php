@@ -5,13 +5,20 @@ namespace App\Http\Controllers;
 
 class ClientController extends Controller
 {
-     public function index(){
-        $variables = [
-             'titulo' => 'Inicio',
+    private $variables = [] ;
+
+
+    function __construct(){
+      $this->variables = [
+             'titulo' => 'Cliente',
              'favicon' => 'fav.ico',
              'user' => 'Admin',
              'clientclass' => 'class="active-menu"'
          ];
-         return view('backend/home',$variables);
+    }
+
+     public function index(){ 
+         
+         return view('backend/client',$this->variables);
      }
 }

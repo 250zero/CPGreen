@@ -15,5 +15,9 @@ Route::get('/', 'HomeController@index' );
 Route::get('/home', 'HomeController@index' );
 Route::get('/savings', 'SavingsController@index' );
 Route::get('/loan', 'LoanController@index' );
-Route::get('/client', 'ClientController@index' );
+
+
+Route::get('/client', 'ClientController@index' ); 
+
+
 Route::get('/users', 'UsersController@index' );

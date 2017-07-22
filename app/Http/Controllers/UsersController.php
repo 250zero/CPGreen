@@ -5,13 +5,18 @@ namespace App\Http\Controllers;
 
 class UsersController extends Controller
 {
-     public function index(){
-         $variables = [
-             'titulo' => 'Inicio',
+    private $variables = [] ;
+
+
+    function __construct(){
+        $this->variables = [
+             'titulo' => 'Usuarios',
              'favicon' => 'fav.ico',
              'user' => 'Admin',
              'usersclass' => 'class="active-menu"'
          ];
-         return view('backend/home',$variables);
+    }
+    public function index(){ 
+         return view('backend/users',$this->variables);
      }
 }

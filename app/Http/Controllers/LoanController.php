@@ -4,14 +4,21 @@ namespace App\Http\Controllers;
  
 
 class LoanController extends Controller
-{
-     public function index(){
-      $variables = [
-             'titulo' => 'Inicio',
+{ 
+     private $variables = [] ;
+
+
+    function __construct(){
+        $this->variables = [
+             'titulo' => 'Prestamos',
              'favicon' => 'fav.ico',
              'user' => 'Admin',
              'loanclass' => 'class="active-menu"'
          ];
-         return view('backend/home',$variables);
-     }
+    }
+
+     public function index(){ 
+         
+         return view('backend/loan',$this->variables);
+     } 
 }
