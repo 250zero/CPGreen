@@ -9,7 +9,8 @@ class HomeController extends Controller
          $variables = [
              'titulo' => 'Inicio',
              'favicon' => 'fav.ico',
-             'user' => 'Admin'
+             'user' => 'Admin',
+             'homeclass' => 'class="active-menu"'
          ];
          return view('backend/home',$variables);
      }

@@ -9,21 +9,21 @@
 				
 					
                     <li>
-                        <a  href="index.html" class="active-menu" ><i class="   fa fa-dashboard fa-2x"></i> Dashboard</a>
+                        <a  href="home" <?=(!empty($homeclass))?$homeclass:''?>  ><i class="   fa fa-dashboard fa-2x"></i> Dashboard</a>
                     </li>
                       <li>
-                        <a  href="ui.html"><i class="fa fa-desktop fa-2x"></i> Clientes</a>
+                        <a  href="client"  <?=(!empty($clientclass))?$clientclass:''?>  ><i class="fa fa-users fa-2x"></i> Clientes</a>
                     </li>
                     <li>
-                        <a  href="tab-panel.html"><i class="fa fa-qrcode fa-2x"></i> Prestamos</a>
+                        <a  href="loan" <?=(!empty($loanclass))?$loanclass:''?>  > <i class="fa fa-money fa-2x"></i> Prestamos</a>
                     </li>
 					   <li  >
-                        <a  href="chart.html"><i class="fa fa-bar-chart-o fa-2x"></i> Ahorros</a>
+                        <a  href="savings" <?=(!empty($savingsclass))?$savingsclass:''?>  ><i class="fa fa-bar-chart-o fa-2x"></i> Ahorros</a>
                     </li>	
-                    <!--	   <li  >
-                        <a  href="table.html"><i class="fa fa-table fa-2x"></i> Table Examples</a>
-                    </li>
                     <li  >
+                        <a  href="users" <?=(!empty($usersclass))?$usersclass:''?> ><i class="fa fa-user fa-2x"></i> Usuarios</a>
+                    </li>
+                     <!-- <li  >
                         <a  href="form.html"><i class="fa fa-edit fa-2x"></i> Forms </a>
                     </li>				
 					
