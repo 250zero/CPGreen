@@ -21,3 +21,4 @@ Route::get('/client', 'ClientController@index' );
 
 
 Route::get('/users', 'UsersController@index' );
+Route::get('/users', 'UsersController@index' );
