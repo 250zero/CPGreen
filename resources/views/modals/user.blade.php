@@ -12,6 +12,10 @@
                     </div>
                     <div class="form-group">
                         <label>Contraseña</label>
+                            <div class="form-group" id="habilitar_cambiar">
+                                <label>Cambiar?</label>
+                                <input type="checkbox" name="habilitar_change_p" id="habilitar_change_p">
+                            </div>
                         <input class="form-control" type="password" id="password" name="password">
                     </div>
                     <div class="form-group">
