@@ -1,6 +1,7 @@
  @include('template.header') 
  @include('template.navbar')
  @include('template.menu')
+ @include('modals.user')
     <div id="page-wrapper" >
             <div id="page-inner">
             
@@ -16,7 +17,7 @@
               </div>
               
               <div class="col-sm-2">
-                  <button class="btn btn-primary"><li class="fa fa-user  "></li> Nuevo</button>
+                  <button class="btn btn-primary" id="btn_nuevo"><li class="fa fa-user  "></li> Nuevo</button>
               </div>
          </div>
       </div>
@@ -34,7 +35,7 @@
           </thead>
           <tbody>
               @foreach ($users as $user)
-                  <tr >
+                  <tr onclick="getProfile({{ $user->id_user }})" >
                       <td>{{ $user->username }}</td>
                       <td>{{ $user->rsClient->name }}</td>
                       <td>{{ $user->state }}</td>
@@ -59,5 +60,7 @@ td:hover {
          <!-- /. PAGE WRAPPER  -->
  
   @include('template.footer')
+  
+    <script src="{{asset('js/custom/user.js')}}"></script> 
 
  
