@@ -31,4 +31,8 @@ class UsersController extends Controller
          }
          return User::with('rsClient')->where('id_user',$r->id)->first();
      }
+
+     public function save(){
+         
+     }
 }

@@ -6,6 +6,7 @@
         <h4 class="modal-title">Modal title</h4>
       </div>
       <div class="modal-body"> 
+      <input class="form-control" type="hidden" value="0" id="id_user" name="id_user">
                     <div class="form-group">
                         <label>Usuario</label>
                         <input class="form-control" type="text" id="username" name="username">

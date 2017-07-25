@@ -9,6 +9,7 @@
     <link href="{{asset('css/bootstrap.css')}}" rel="stylesheet" />
     <link href="{{asset('css/custom.css')}}" rel="stylesheet" />
     <link href="{{asset('css/font-awesome.css')}}" rel="stylesheet" />
+    <link href="{{asset('css/toastr.min.css')}}" rel="stylesheet" />
      <!-- FONTAWESOME STYLES-->   
 </head> 
 <body>
