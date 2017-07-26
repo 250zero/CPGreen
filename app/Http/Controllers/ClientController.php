@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers; 
+use  App\Models\Client;
  
 
 class ClientController extends Controller
@@ -20,5 +21,9 @@ class ClientController extends Controller
      public function index(){ 
          
          return view('backend/client',$this->variables);
+     }
+
+     public function search(){  
+         return Client::paginate(10);
      }
 }

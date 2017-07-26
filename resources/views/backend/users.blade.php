@@ -2,6 +2,7 @@
  @include('template.navbar')
  @include('template.menu')
  @include('modals.user')
+ @include('modals.searchClient')
     <div id="page-wrapper" >
             <div id="page-inner">
             

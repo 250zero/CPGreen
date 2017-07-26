@@ -16,9 +16,10 @@ Route::get('/home', 'HomeController@index' );
 Route::get('/savings', 'SavingsController@index' );
 Route::get('/loan', 'LoanController@index' );
 
-
+Route::get('/client/search','ClientController@search');
 Route::get('/client', 'ClientController@index' ); 
 
 
 Route::get('/users', 'UsersController@index' );
 Route::get('/users/profile', 'UsersController@profile' );
+Route::post('users/save', 'UsersController@save' );
