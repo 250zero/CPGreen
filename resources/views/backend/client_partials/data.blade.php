@@ -6,7 +6,7 @@
             <div class="col-sm-5"> 
                     <div class="form-group">
                         <label>Cuenta</label> 
-                        <input class="form-control" type="password" id="cuenta_socio" name="cuenta_socio">
+                        <input class="form-control" type="text" id="cuenta_socio" name="cuenta_socio">
                     </div>
                     <div class="form-group">
                         <label>Nombre</label>
