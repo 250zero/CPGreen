@@ -20,8 +20,17 @@ class UsersController extends Controller
              'usersclass' => 'class="active-menu"'
          ];
     }
-    public function index(){ 
-         $this->variables['users'] = User::with('rsClient')->where('state',1)->paginate($this->limit);
+    public function index(Request $r){ 
+        $search = '';
+         if($r->has('search'))
+         {
+             $search = $r->search;
+         }
+         $this->variables['search'] =  $search; 
+         $this->variables['users'] = User::with('rsClient')->
+         where('state',1)->
+         where('username','like','%'.$search.'%')->
+         paginate($this->limit);
          return view('backend/users',$this->variables);
      }
 

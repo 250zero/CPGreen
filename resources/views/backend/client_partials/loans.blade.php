@@ -1,12 +1,4 @@
- @include('template.header') 
- @include('template.navbar')
- @include('template.menu')
- @include('modals.user')
- @include('modals.searchClient')
-    <div id="page-wrapper" >
-            <div id="page-inner">
-            
-      <div class="row">
+<div class="row">
          <div class="col-sm-12">
               <div class="col-sm-10">
                       <form method="GET" >
@@ -18,7 +10,7 @@
               </div>
               
               <div class="col-sm-2">
-                  <button class="btn btn-primary" id="btn_nuevo"><li class="fa fa-user  "></li> Nuevo</button>
+                  <button class="btn btn-primary" id="btn_nuevo"><li class="fa fa-money  "></li> Nuevo</button>
               </div>
          </div>
       </div>
@@ -28,40 +20,27 @@
       <table class="table table-striped table-bordered table-hover" > 
           <thead>
               <tr>
-                    <th>Usuario</th>
-                    <th>Cliente</th>
-                    <th>Estado</th>
-                    <th>Nivel</th>
+                    <th>Cuenta</th>
+                    <th>Porciento</th>
+                    <th>Capital</th>
+                    <th>Intereses</th>
+                    <th>Restante</th>
               </tr>
           </thead>
           <tbody>
-              @foreach ($users as $user)
+              <!-- @foreach ($users as $user)
                   <tr onclick="getProfile({{ $user->id_user }})" >
                       <td>{{ $user->username }}</td>
                       <td>{{ $user->rsClient->name }}</td>
                       <td>{{ $user->state }}</td>
                       <td>{{ $user->level }}</td>
                   </tr>
-              @endforeach
+              @endforeach -->
           </tbody>
       </table>      
-{{ $users->links() }}
+<!-- {{ $users->links() }} -->
 </div>
 <style>
 td:hover { 
       cursor:pointer;
 }
-</style>
- <!-- /. col-sm-12 -->
-</div>
- <!-- /. Row -->
-            </div>
-             <!-- /. PAGE INNER  -->
-    </div>
-         <!-- /. PAGE WRAPPER  -->
- 
-  @include('template.footer')
-  
-    <script src="{{asset('js/custom/user.js')}}"></script> 
-
- 

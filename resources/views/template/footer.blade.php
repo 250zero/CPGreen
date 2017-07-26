@@ -3,6 +3,7 @@
      <script src="../node_modules/jquery/dist/jquery.min.js"></script> 
       <!-- BOOTSTRAP SCRIPTS -->
     <script src="{{asset('js/bootstrap.min.js')}}"></script>
+    <script src="../node_modules/bootstrap-sass/assets/javascripts/bootstrap.js"></script>
     <!-- METISMENU SCRIPTS -->
     <script src="{{asset('js/jquery.metisMenu.js')}}"></script>
       <!-- CUSTOM SCRIPTS -->
