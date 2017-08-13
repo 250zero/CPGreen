@@ -14,10 +14,10 @@
                       <li>
                         <a  href="client"  <?=(!empty($clientclass))?$clientclass:''?>  ><i class="fa fa-users fa-2x"></i> Clientes</a>
                     </li>
-                    <li>
+                    <li style='display:none'>
                         <a  href="loan" <?=(!empty($loanclass))?$loanclass:''?>  > <i class="fa fa-money fa-2x"></i> Prestamos</a>
                     </li>
-					   <li  >
+					   <li style='display:none' >
                         <a  href="savings" <?=(!empty($savingsclass))?$savingsclass:''?>  ><i class="fa fa-bar-chart-o fa-2x"></i> Ahorros</a>
                     </li>	
                     <li  >
