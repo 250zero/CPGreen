@@ -1,46 +1,37 @@
-<div class="row">
-         <div class="col-sm-12">
-              <div class="col-sm-10">
-                      <form method="GET" >
-                  <div class="input-group"> 
-                      <input type="text" class="form-control" name="search" value="{{$search}}"> 
-                      <div class="input-group-addon"><li class="fa fa-search "></li></div> 
-                  </div>
-                   </form>
-              </div>
-              
-              <div class="col-sm-2">
-                  <button class="btn btn-primary" id="btn_nuevo"><li class="fa fa-money  "></li> Nuevo</button>
-              </div>
-         </div>
+ <br> 
+ <div class="row">
+     <div class="col-sm-12" >
+        <div class='col-sm-4'>
+                <form>
+                    <div class="form-group">
+                        <label>Monto de transacción</label>
+                        <input type='text' class="form-control" id="transacction_mont">
+                        </div>
+                    <div class="form-group">
+                        <label>Tipo de transaccion</label>
+                        <select class="form-control" id="transacction_type">
+
+                        </select>
+                        </div>
+                    <div class="form-group">
+                        <label>Comentario</label>
+                        <textarea class="form-control" id="transacction_coment">
+
+                        </textarea>
+                        </div>
+                    </form>
+            </div>  
+        <div class='col-sm-8'>
+            <table class="table table-striped table-bordered table-hover" >
+                <thead>
+                    <tr>
+                        <th>Tipo Transaccion</th>
+                        <th>Fecha</th> 
+                        <th>Monto</th>
+                    </tr>
+                </thead>
+            </table>
+            </div>  
       </div>
-          <hr />        
-      <div class="row">
-         <div class="col-sm-12">
-      <table class="table table-striped table-bordered table-hover" > 
-          <thead>
-              <tr>
-                    <th>Cuenta</th>
-                    <th>Porciento</th>
-                    <th>Capital</th>
-                    <th>Intereses</th>
-                    <th>Restante</th>
-              </tr>
-          </thead>
-          <tbody>
-              <!-- @foreach ($users as $user)
-                  <tr onclick="getProfile({{ $user->id_user }})" >
-                      <td>{{ $user->username }}</td>
-                      <td>{{ $user->rsClient->name }}</td>
-                      <td>{{ $user->state }}</td>
-                      <td>{{ $user->level }}</td>
-                  </tr>
-              @endforeach -->
-          </tbody>
-      </table>      
-<!-- {{ $users->links() }} -->
-</div>
-<style>
-td:hover { 
-      cursor:pointer;
-}
+
+ </div>
