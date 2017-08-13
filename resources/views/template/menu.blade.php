@@ -5,9 +5,7 @@
                 <ul class="nav" id="main-menu">
 				<li class="text-center">
                     <img src="{{asset('img/find_user.png')}}" class="user-image img-responsive"/>
-					</li>
-				
-					
+					</li> 
                     <li>
                         <a  href="home" <?=(!empty($homeclass))?$homeclass:''?>  ><i class="   fa fa-dashboard fa-2x"></i> Dashboard</a>
                     </li>
