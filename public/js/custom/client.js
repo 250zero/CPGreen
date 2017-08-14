@@ -14,6 +14,7 @@ function getProfile(id){
         $('#id_client').val(result.id_client);
         $('#cuenta_socio').val(result.account);
         $('#client_name').val(result.name);
+        $('#capital').val(result.stock);
         $('#email').val(result.email);
         $('#telephone').val(result.telephone);
         $('#ClientModal').modal('show'); 

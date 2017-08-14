@@ -64,6 +64,8 @@ td:hover {
  
   @include('template.footer')
   @include('modals.client')
+  @include('modals.loans')
 
     <script src="{{asset('js/custom/client.js')}}"></script> 
+    <script src="{{asset('js/custom/loans.js')}}"></script> 
  

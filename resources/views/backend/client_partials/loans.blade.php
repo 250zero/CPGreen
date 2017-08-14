@@ -19,6 +19,7 @@
 
                         </textarea>
                         </div>
+                        <button class="btn btn-success">Guardar</button>
                     </form>
             </div>  
         <div class='col-sm-8'>

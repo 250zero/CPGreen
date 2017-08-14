@@ -30,15 +30,18 @@
                     </div>  
             </div>
 
-      </div><br>
+      </div> 
       <div class="row"> 
             <div class="col-sm-12"> 
+                <h3>Prestamos  <button class="btn btn-primary" id="add_loans"><li class="fa fa-plus  "></li></button></h3> 
+               
                 <table class="table table-striped table-bordered table-hover">
                     <tr>
                         <th>ID</th>
-                        <th>Producto</th> 
-                        <th>Ultimo movimiento</th>
-                        <th>Balance</th>
+                        <th>Intereses</th> 
+                        <th>Dia de pago</th>
+                        <th>Numero de pagos</th>
+                        <th>Capital solicitado</th> 
                     </tr>
                 </table>
             </div>
