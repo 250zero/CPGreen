@@ -12,7 +12,7 @@ class UserTableSeeder extends Seeder
     public function run()
     {
          $id_client = DB::table('client')->insertGetId(
-                ['name' => 'Administrador', 'email' => 'info@prueba.com','telephone' => '809' , 'account' => '5153AACA351']
+                ['name' => 'Administrador', 'email' => 'info@prueba.com','telephone' => '809' , 'account' => '5153AACA351','stock'=>'0.0']
          );
 
          DB::table('user')->insert(

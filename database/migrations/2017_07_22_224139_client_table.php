@@ -18,7 +18,8 @@ class ClientTable extends Migration
             $table->string('email',125)->unique();
             $table->string('name',40);
             $table->string('telephone',55);
-            $table->string('account',55); 
+            $table->string('account',55);  
+            $table->float('stock',8,2);
             $table->timestamps();
         });
     }

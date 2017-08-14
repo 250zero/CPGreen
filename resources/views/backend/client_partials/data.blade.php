@@ -23,6 +23,12 @@
                         <input class="form-control" type="text" id="telephone" name="telephone">
                     </div>
             </div>
+              <div class="col-sm-5"> 
+                    <div class="form-group">
+                        <label>Capital</label>
+                        <input class="form-control" type="text" id="capital" name="capital">
+                    </div>  
+            </div>
 
       </div><br>
       <div class="row"> 
@@ -30,26 +36,12 @@
                 <table class="table table-striped table-bordered table-hover">
                     <tr>
                         <th>ID</th>
-                        <th>Porciento</th>
-                        <th>Ultimo Pago</th>
-                        <th>Tarifa</th>
-                        <th>Restante</th>
+                        <th>Producto</th> 
+                        <th>Ultimo movimiento</th>
+                        <th>Balance</th>
                     </tr>
                 </table>
             </div>
         </div>
         <br>
-      <div class="row">  
-             <div class="col-sm-12"> 
-                <table class="table table-striped table-bordered table-hover">
-                    <tr>
-                        <th>ID</th>
-                        <th>Capital</th>
-                        <th>Ultimo Movimiento</th>
-                        <th>Monto</th>
-                        <th>Fecha de descuento</th>
-                    </tr>
-                </table>
-            </div>
-      </div>
-      
+ 

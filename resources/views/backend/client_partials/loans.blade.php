@@ -22,7 +22,7 @@
                     </form>
             </div>  
         <div class='col-sm-8'>
-            <table class="table table-striped table-bordered table-hover" >
+            <table id="loans_transaction_table" class="table table-striped table-bordered table-hover" >
                 <thead>
                     <tr>
                         <th>Tipo Transaccion</th>
