@@ -12,9 +12,9 @@ function getProfile(id){
     }).done(function(result) { 
         $('.modal-title').html(result.name);
         $('#id_client').val(result.id_client);
-        $('#cuenta_socio').val(result.account);
+        $('#account').val(result.account);
         $('#client_name').val(result.name);
-        $('#capital').val(result.stock);
+        $('#stock').val(result.stock);
         $('#email').val(result.email);
         $('#telephone').val(result.telephone);
         $('#ClientModal').modal('show'); 
@@ -34,23 +34,29 @@ $('#btn_nuevo').on('click',function(){
     save();
  });
 
-function save(){
-   $("input[type='text']").val('');
-   $("#id_client").val('0');
-   $('.modal-title').html('');
+function save(){ 
+     var data = {
+        account:$("#account").val(),
+        id_client:$("#id_client").val(),
+        _token:$('input[name=_token]').val(),
+        client_name:$("#client_name").val(),
+        email:$("#email").val(),
+        telephone:$("#telephone").val(),
+        stock:$("#stock").val() 
+    }; 
    $.ajax({
-        url: "client/profile",
-        method: "GET",
+        url: "client/save",
+        method: "POST",
         dataType:"json",
-        data:{id:id}
+        data:data
     }).done(function(result) { 
-        $('.modal-title').html(result.name);
-        $('#id_client').val(result.id_client);
-        $('#cuenta_socio').val(result.account);
-        $('#client_name').val(result.name);
-        $('#capital').val(result.stock);
-        $('#email').val(result.email);
-        $('#telephone').val(result.telephone);
-        $('#ClientModal').modal('show'); 
+        if(result.status > 0)
+        {
+            toastr.success(result.msn, 'Operación exitosa');
+            $("#ClientModal").modal('hide');
+            location.reload();
+            return false;
+        }
+        toastr.warning(result.msn, 'Se ha desconectado del sevidor'); 
     });
 }

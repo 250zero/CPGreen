@@ -41,4 +41,29 @@ class ClientController extends Controller
          }
          return Client::find($r->id);
      }
+     public function save(Request $r){  
+         if(empty($r->id_client))
+         {
+             $client = new Client();
+         }
+         else
+         {
+             $client = Client::find($r->id_client);
+         }
+         $client->email = $r->email;
+         $client->name = $r->client_name;
+         $client->telephone = $r->telephone;
+         $client->account = $r->account;
+         $client->stock = $r->stock; 
+         $client->save();
+         if($client->id_client)
+         {
+             return ['msn'=>'Operación exitosa','status'=>1];
+         }
+         else
+         {
+             return ['msn'=>'El registro no pudo ser actualizado','status'=>0];
+         }
+         
+     }
 }

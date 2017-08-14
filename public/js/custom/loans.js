@@ -22,6 +22,10 @@ $('#add_loans').on('click',function(){
     $('#LoansModal').modal('show');
 });
 
+$('#save_loans').on('click',function(){
+
+});
+
 function transacctionType(){ 
    $.ajax({
         url: "utility/transacction_type",

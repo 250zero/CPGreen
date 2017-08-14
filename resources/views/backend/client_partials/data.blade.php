@@ -5,8 +5,8 @@
       <div class="row"> 
             <div class="col-sm-5"> 
                     <div class="form-group">
-                        <label>Cuenta</label> 
-                        <input class="form-control" type="text" id="cuenta_socio" name="cuenta_socio">
+                        <label>Cuenta</label>  
+                        <input class="form-control" type="text" id="account" name="account">
                     </div>
                     <div class="form-group">
                         <label>Nombre</label>
@@ -26,7 +26,7 @@
               <div class="col-sm-5"> 
                     <div class="form-group">
                         <label>Capital</label>
-                        <input class="form-control" type="text" id="capital" name="capital">
+                        <input class="form-control" type="text" id="stock" name="stock">
                     </div>  
             </div>
 

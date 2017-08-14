@@ -18,12 +18,13 @@ Route::get('/loan', 'LoanController@index' );
 
 Route::get('/client/search','ClientController@search');
 Route::get('/client/profile','ClientController@profile');
+Route::post('/client/save','ClientController@save');
 Route::get('/client', 'ClientController@index' ); 
 
 
 Route::get('/users', 'UsersController@index' );
 Route::get('/users/profile', 'UsersController@profile' );
-Route::post('users/save', 'UsersController@save' );
+Route::post('/users/save', 'UsersController@save' );
 
 
 Route::get('/utility/transacction_type', 'UtilityController@transacction_type' );
