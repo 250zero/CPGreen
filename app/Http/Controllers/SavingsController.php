@@ -9,6 +9,7 @@ class SavingsController extends Controller
 
 
     function __construct(){
+        $this->middleware('auth');
         $this->variables = [
              'titulo' => 'Ahorros',
              'favicon' => 'fav.ico',

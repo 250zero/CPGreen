@@ -12,6 +12,7 @@ class UsersController extends Controller
     private $limit ;
 
     function __construct(){
+        $this->middleware('auth');
         $this->limit=10;
         $this->variables = [
              'titulo' => 'Usuarios',

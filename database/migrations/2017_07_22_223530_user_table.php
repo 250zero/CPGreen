@@ -19,6 +19,7 @@ class UserTable extends Migration
             $table->string('password');
             $table->integer('id_client');
             $table->integer('state');
+            $table->string('remember_token');
             $table->integer('level');
             $table->timestamps();
         });

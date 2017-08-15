@@ -3,6 +3,7 @@
 namespace App\Http\Controllers; 
 use  App\Models\Client;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
  
 
 class ClientController extends Controller
@@ -11,12 +12,14 @@ class ClientController extends Controller
 
 
     function __construct(){
+      $this->middleware('auth');
       $this->variables = [
              'titulo' => 'Cliente',
              'favicon' => 'fav.ico',
              'user' => 'Admin',
              'clientclass' => 'class="active-menu"'
          ];
+         
     }
 
      public function index(Request $r){ 
@@ -29,6 +32,11 @@ class ClientController extends Controller
          $this->variables['clients'] = Client::where('name','like','%'.$search.'%')
          ->paginate(10);
          return view('backend/client',$this->variables);
+     }
+
+     
+     public function dashboard(){  
+         return Client::paginate(10);
      }
 
      public function search(){  

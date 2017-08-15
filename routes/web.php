@@ -23,8 +23,18 @@ Route::get('/client', 'ClientController@index' );
 
 
 
+
+
+Route::get('/logout', 'LoginController@logout' ); 
+Route::get('/login', 'LoginController@index' )->name('login'); 
+Route::post('/login/acceder', 'LoginController@login' )->name('login'); 
+
+
+Route::get('/dashboard/Client', 'ClientController@dashboard' ); 
+
 Route::post('/loans', 'LoanController@save' );
 Route::get('/loans/get_loans','LoanController@getLoans');
+Route::get('/loans/get_loans_detail','LoanController@getLoansDetail');
 
 Route::get('/users', 'UsersController@index' );
 Route::get('/users/profile', 'UsersController@profile' );

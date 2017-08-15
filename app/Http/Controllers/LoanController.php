@@ -10,6 +10,7 @@ class LoanController extends Controller
 
 
     function __construct(){
+        $this->middleware('auth');
         $this->variables = [
              'titulo' => 'Prestamos',
              'favicon' => 'fav.ico',
@@ -22,7 +23,10 @@ class LoanController extends Controller
          
          return view('backend/loan',$this->variables);
      } 
-
+    public function getLoansDetail(Request $r)
+    {
+        return Loans::where('id_loans_header',$r->id)->first();
+    }
      public function getLoans(Request $r)
      {
             return Loans::where('id_client',$r->id)->get();

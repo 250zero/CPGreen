@@ -16,7 +16,7 @@ class UserTableSeeder extends Seeder
          );
 
          DB::table('user')->insert(
-                ['username' => 'Admin', 'password' => Hash::make('Admin123'),'id_client' => $id_client,'state' => 1,'level'=>2]
+                ['username' => 'Admin', 'remember_token'=>'','password' => Hash::make('Admin123'),'id_client' => $id_client,'state' => 1,'level'=>2]
          ); 
     }
 }

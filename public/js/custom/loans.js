@@ -137,7 +137,7 @@ function getLoans(id){
         var amotization = '';
         $(result).each(function(){ 
                    amotization = this.solicituded_stock - ((this.cuotes / this.no_pay) * this.cuotes_paid);
-                   html += '<tr >';
+                   html += '<tr onclick="getLoansDetails('+this.id_loans_header+')">';
                    html += '<td>'+this.fecha_ini+'</td>'; 
                    html += '<td>'+this.fecha_fin+'</td>'; 
                    html += '<td>'+this.porcetange+'</td>'; 
@@ -146,6 +146,36 @@ function getLoans(id){
                    html += '</tr>' ; 
         });   
         $("#header_loans tbody").html(html);
+    });
+}
+
+
+
+
+
+
+function getLoansDetails(id){ 
+    var amotization =0;
+   $.ajax({
+        url: "loans/get_loans_detail",
+        method: "GET",
+        dataType:"json",
+        data:{id:id} 
+    }).done(function(result){
+        var fi = new Date();   
+        var amotization = result.solicituded_stock - ((result.cuotes / result.no_pay) * result.cuotes_paid);
+                  
+        $('#date_init_loans_show').html(result.fecha_ini);
+        $('#date_final_loans_show').html(result.fecha_fin);
+        $('#solicituded_stock_show').html(result.solicituded_stock);
+        $('#number_cuotes_show').html(result.no_pay);
+        $('#cuotes_show').html(result.cuotes);
+        $('#paid_cuotes_show').html(result.cuotes_paid);
+        $('#rest_cuotes_show').html(result.rest_cuotes);
+        $('#porcentage_cuotes_show').html(result.porcetange);
+        $('#stock_amortization_show').html(amotization);
+        $('.modal3-title').html('Prestamo :: '+result.id_loans_header);
+        $('#LoansModalDetail').modal('show');
     });
 }
  
