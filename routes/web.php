@@ -24,7 +24,7 @@ Route::get('/client', 'ClientController@index' );
 
 
 Route::post('/loans', 'LoanController@save' );
-
+Route::get('/loans/get_loans','LoanController@getLoans');
 
 Route::get('/users', 'UsersController@index' );
 Route::get('/users/profile', 'UsersController@profile' );
@@ -32,4 +32,4 @@ Route::post('/users/save', 'UsersController@save' );
 
 
 Route::get('/utility/transacction_type', 'UtilityController@transacction_type' );
-Route::get('/utility/period_pay', 'UtilityController@period_pay' );
+ 

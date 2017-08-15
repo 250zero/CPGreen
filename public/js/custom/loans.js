@@ -1,6 +1,7 @@
 var fecha_ini='';
 var fecha_fin='';
 var date ;
+ var cuotes = 0 ;
 $(document).ready(function(){
       transacctionType();
       var now = new Date();
@@ -17,14 +18,17 @@ $('#add_loans').on('click',function(){
     $('#loans_id').val('0');
     $("#date_init_loans").val( fecha_ini );
     $("#date_final_loans").val( fecha_fin );
-    $("#id_client").val('0');  
+    $("#id_loans").val('0');  
     $('#LoansModal').modal('show');
+    $('#loans_amortization_table tbody').html('');
 });
 
 $('#save_loans').on('click',function(){
     data = {
         solicituded_stock:$('#solicituded_stock').val(),
         id_loans:$('#id_loans').val(),
+        cuotes:cuotes,
+        cuotes_paid:((( $('#solicituded_stock').val()/ cuotes) * ($('#interest').val()/100)) + ($('#solicituded_stock').val() / cuotes)),
         interest:$('#interest').val(),
         date_init_loans:$('#date_init_loans').val(),
         date_final_loans:$('#date_final_loans').val(),
@@ -33,13 +37,20 @@ $('#save_loans').on('click',function(){
         solicituded_stock:$('#solicituded_stock').val(),
 
     };
-     $.ajax({
+    $.ajax({
         url: "loans",
         method: "POST",
         dataType:"json",
         data:data 
     }).done(function(result) {  
-       
+        if(result.status > 0)
+        {
+            toastr.success(result.msn, 'Operación exitosa');
+            $("#LoansModal").modal('hide'); 
+            getLoans($('#id_client').val());
+            return false;
+        }
+        toastr.warning(result.msn, 'Inconvenientes en el sevidor');
     });
 });
 
@@ -68,7 +79,7 @@ $('#calculate_loans').on('click',function(){
             toastr.warning(msn[0], 'Error logico');
             return false;
     }  
-    var cuotes =  caculateMonth();  
+    cuotes =  caculateMonth();  
     var html='';
     var stock = $('#solicituded_stock').val();
     var stock_live = $('#solicituded_stock').val();
@@ -109,6 +120,31 @@ function transacctionType(){
                    html +=  '</option>' ; 
         });   
         $("#transacction_type").html(html);
+    });
+}
+ 
+
+
+function getLoans(id){ 
+   $.ajax({
+        url: "loans/get_loans",
+        method: "GET",
+        dataType:"json",
+        data:{id:id} 
+    }).done(function(result){  
+        var html = '';
+        var amotization = '';
+        $(result).each(function(){ 
+                   amotization = this.solicituded_stock - ((this.cuotes / this.no_pay) * this.cuotes_paid);
+                   html += '<tr >';
+                   html += '<td>'+this.fecha_ini+'</td>'; 
+                   html += '<td>'+this.fecha_fin+'</td>'; 
+                   html += '<td>'+this.porcetange+'</td>'; 
+                   html += '<td>'+this.cuotes+'</td>'; 
+                   html += '<td>'+amotization+'</td>'; 
+                   html += '</tr>' ; 
+        });   
+        $("#header_loans tbody").html(html);
     });
 }
  

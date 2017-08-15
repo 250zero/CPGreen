@@ -22,10 +22,15 @@ class LoanController extends Controller
          
          return view('backend/loan',$this->variables);
      } 
-      public function save(Request $r){ 
-          if($r->id_client <=0 ){
+
+     public function getLoans(Request $r)
+     {
+            return Loans::where('id_client',$r->id)->get();
+     }
+    public function save(Request $r){ 
+        if($r->id_client <=0 ){
               return ['msn'=>'El cliente no existe','status'=>0];
-          }
+        }
          if(!empty($r->id_loans))
          {
              $loans = Loans::find($r->id_loans);
@@ -33,16 +38,23 @@ class LoanController extends Controller
          else
          {
               $loans = new Loans();
-         } 
-
-        $loans->id_client= $r->id_client; 
-        $loans->no_pay = $r->aaaaaaa; 
-        $loans->period_pay= 1; 
-        $loans->porcetange= $r->interest; 
-        $loans->duration= $r->aaaaaaa; 
-        $loans->amortization= $r->aaaaaaa; 
-        $loans->solicituded_stock= $r->solicituded_stock; 
-        $loans->pay_day= $r->date_init_loans;   
+         }  
+        $loans->id_client= $r->id_client;  
+        $loans->fecha_ini= $r->date_init_loans;  
+        $loans->fecha_fin= $r->date_final_loans;  
+        $loans->no_pay= $r->cuotes;  
+        $loans->cuotes= $r->cuotes_paid;  
+        if($r->id_loans <=0){ 
+            $loans->rest_cuotes= 0;  
+            $loans->cuotes_paid= 0;  
+        }
+        $loans->porcetange= $r->interest;  
+        $loans->solicituded_stock= $r->solicituded_stock;  
         $loans->save(); 
+        if(!empty($loans->id_loans_header))
+        {
+            return ['msn'=>'Operacion exitosa','status'=>1];
+        }
+        return ['msn'=>'Hubo inconvenientes en la actualizacion del registro','status'=>0];
      } 
 }

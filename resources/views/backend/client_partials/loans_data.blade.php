@@ -12,10 +12,15 @@
                         <label>Interes</label>
                          <input type='text' class="form-control" id="interest">
                         </div>
-                     <div class="form-group">
-                        <h4>Rango de pago</h4>
-                         <br><label>Periodo de Pago</label>
-                          <br><label>MENSUAL</label><br><br>
+                     <div class="form-group" style= "
+    background-color: #1d9a0e;
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+">
+                          <label>Periodo de Pago: Mensual</label>
+                           <br> 
+                           <br> 
                            <label>Fecha Inicio</label>
                          <input type='date' class="form-control" id="date_init_loans">
                          <label>Fecha Final</label>
@@ -23,7 +28,7 @@
                          <br><button class="btn btn-warning" id="calculate_loans" >Calcular</button>
                         </div>  
             </div>  
-        <div class='col-sm-8' style="overflow:auto;">
+        <div class='col-sm-8' style="overflow:auto;height: 450px;" >
             <table  id="loans_amortization_table"  class="table table-striped table-bordered table-hover" >
                 <thead>
                     <tr>

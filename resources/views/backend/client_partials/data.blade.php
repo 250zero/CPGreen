@@ -35,14 +35,17 @@
             <div class="col-sm-12"> 
                 <h3>Prestamos  <button class="btn btn-primary" id="add_loans"><li class="fa fa-plus  "></li></button></h3> 
                
-                <table class="table table-striped table-bordered table-hover">
-                    <tr>
-                        <th>ID</th>
-                        <th>Intereses</th> 
-                        <th>Dia de pago</th>
-                        <th>Numero de pagos</th>
-                        <th>Capital solicitado</th> 
+                <table id="header_loans" class="table table-striped table-bordered table-hover">
+                  <thead>
+                        <tr>
+                        <th>Fecha Inicio</th>
+                        <th>Fecha Final</th>  
+                        <th>Porciento</th>
+                        <th>Cuotas</th>
+                        <th>Capital Amortizado</th> 
                     </tr>
+                </thead>
+                <tbody></tbody>
                 </table>
             </div>
         </div>

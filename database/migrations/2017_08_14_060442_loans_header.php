@@ -16,13 +16,14 @@ class LoansHeader extends Migration
          Schema::create('loans_header', function (Blueprint $table) {
             $table->increments('id_loans_header')->unique();
             $table->integer('id_client');
+            $table->date('fecha_ini');
+            $table->date('fecha_fin');
             $table->integer('no_pay');
-            $table->date('period_pay');
-            $table->integer('porcetange');
-            $table->integer('duration');
-            $table->float('amortization');
-            $table->float('solicituded_stock');
-            $table->date('pay_day');  
+            $table->integer('porcetange');  
+            $table->float('cuotes');  
+            $table->float('rest_cuotes');  
+            $table->float('cuotes_paid');  
+            $table->float('solicituded_stock'); 
             $table->timestamps();
         });
     }

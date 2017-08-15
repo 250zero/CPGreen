@@ -1,16 +1,12 @@
 <?php
 
-namespace App\Http\Controllers; 
-use  App\Models\Client;
+namespace App\Http\Controllers;  
 use Illuminate\Http\Request;
  
 
 class UtilityController extends Controller
 {
-    private $variables = [] ;
-
-
-    function transacction_type(){
+     function transacction_type(){
         return [
             [   'ID' => '01',
                 'DESCRIPTION' => 'DEBITO'],

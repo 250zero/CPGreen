@@ -17,6 +17,7 @@ function getProfile(id){
         $('#stock').val(result.stock);
         $('#email').val(result.email);
         $('#telephone').val(result.telephone);
+        getLoans(result.id_client);
         $('#ClientModal').modal('show'); 
     });
 }
