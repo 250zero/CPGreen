@@ -22,6 +22,10 @@ Route::post('/client/save','ClientController@save');
 Route::get('/client', 'ClientController@index' ); 
 
 
+
+Route::post('/loans', 'LoanController@save' );
+
+
 Route::get('/users', 'UsersController@index' );
 Route::get('/users/profile', 'UsersController@profile' );
 Route::post('/users/save', 'UsersController@save' );

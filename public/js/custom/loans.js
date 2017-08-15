@@ -22,7 +22,25 @@ $('#add_loans').on('click',function(){
 });
 
 $('#save_loans').on('click',function(){
+    data = {
+        solicituded_stock:$('#solicituded_stock').val(),
+        id_loans:$('#id_loans').val(),
+        interest:$('#interest').val(),
+        date_init_loans:$('#date_init_loans').val(),
+        date_final_loans:$('#date_final_loans').val(),
+         _token:$('input[name=_token]').val(),
+        id_client:$('#id_client').val(),
+        solicituded_stock:$('#solicituded_stock').val(),
 
+    };
+     $.ajax({
+        url: "loans",
+        method: "POST",
+        dataType:"json",
+        data:data 
+    }).done(function(result) {  
+       
+    });
 });
 
 $('#calculate_loans').on('click',function(){

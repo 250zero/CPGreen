@@ -3,9 +3,10 @@
      <div class="col-sm-12" >
         <div class='col-sm-4'> 
                     <div class="form-group">
+                          {{ csrf_field() }}
                         <label>Capital a Solicitar</label>
                         <input type='text' class="form-control" id="solicituded_stock">
-                         <input type='hidden' class="form-control" id="loans_id">
+                        <input type='hidden' class="form-control" id="id_loans"> 
                         </div>
                     <div class="form-group">
                         <label>Interes</label>
