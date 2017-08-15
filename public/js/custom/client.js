@@ -2,8 +2,10 @@
 
 function getProfile(id){
    $("input[type='text']").val('');
+   $("input[type='email']").val('');
    $("#id_client").val('0');
    $('.modal-title').html('');
+   $("#header_loans tbody").html('');
    $.ajax({
         url: "client/profile",
         method: "GET",

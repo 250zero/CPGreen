@@ -4,14 +4,14 @@ var date ;
  var cuotes = 0 ;
 $(document).ready(function(){
       transacctionType();
+});
+
+$('#add_loans').on('click',function(){ 
       var now = new Date();
       var day = ("0" + now.getDate()).slice(-2);
       var month = ("0" + (now.getMonth() + 1)).slice(-2);
       fecha_fin = now.getFullYear()+"-"+(month)+"-"+(day) ; 
       fecha_ini = now.getFullYear()+"-"+(month)+"-"+ '01' ; 
-});
-
-$('#add_loans').on('click',function(){ 
     $('.modal2-title').html('Nuevo Prestamo'); 
     $("#solicituded_stock").val('');
     $("#interest").val('');
@@ -24,6 +24,7 @@ $('#add_loans').on('click',function(){
 });
 
 $('#save_loans').on('click',function(){
+    $( "#calculate_loans" ).trigger( "click" );
     data = {
         solicituded_stock:$('#solicituded_stock').val(),
         id_loans:$('#id_loans').val(),
@@ -90,11 +91,11 @@ $('#calculate_loans').on('click',function(){
         amotization = stock - stock_live;
         html += '<tr>';
         html += '<td>'+(num + 1)+'</td>';
-        html += '<td>'+(((stock / cuotes) * (int/100)) + (stock / cuotes))+'</td>';
-        html += '<td>'+(stock / cuotes) * (int/100)+'</td>';
-        html += '<td>'+(stock / cuotes)+'</td>';
-        html += '<td>'+(stock_live )+'</td>';
-        html += '<td>'+(amotization)+'</td>';
+        html += '<td>'+Math.round(((stock / cuotes) * (int/100)) + (stock / cuotes))+'</td>';
+        html += '<td>'+Math.round((stock / cuotes) * (int/100))+'</td>';
+        html += '<td>'+Math.round(stock / cuotes)+'</td>';
+        html += '<td>'+Math.round(stock_live )+'</td>';
+        html += '<td>'+Math.round(amotization)+'</td>';
         html += '</tr>'; 
     }
     

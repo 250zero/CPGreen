@@ -6,15 +6,14 @@
         <h4 class="modal2-title">Modal title</h4>
       </div>
       <div class="modal-body"> 
-                  <ul class="nav nav-tabs" role="tablist">
+                  <!-- <ul class="nav nav-tabs" role="tablist">
                     <li role="presentation" class="active"><a href="#tab__loans_1" aria-controls="tab__loans_1" role="tab" data-toggle="tab">Datos</a></li>
                      <li role="presentation"  ><a href="#tab__loans_2" aria-controls="tab__loans_2" role="tab" data-toggle="tab">Movimientos</a></li>
-                 </ul> 
+                 </ul>  -->
 
                 <!-- Tab panes -->
                 <div class="tab-content">
-                    <div role="tabpanel" class="tab-pane active" id="tab__loans_1"> @include('backend.client_partials.loans_data')</div>  
-                    <div role="tabpanel" class="tab-pane " id="tab__loans_2"> @include('backend.client_partials.loans')</div>  
+                    <div role="tabpanel" class="tab-pane active" id="tab__loans_1"> @include('backend.client_partials.loans_data')</div>   
                 </div>
 
                 
