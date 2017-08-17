@@ -54,6 +54,7 @@ if(!empty($client))
                                                                             border-radius: 5px;
                                                                             color: white;
                                                                             padding: 5px 5px 10px 10px;
+                                                                            display:none;
                                                                         "> 
                                                                                     <br>
                                                                                     <label >Fecha Inicio :</label>
@@ -121,5 +122,5 @@ if(!empty($client))
  
   @include('template_client.footer')
 
-    <script src="{{asset('js/custom/loans.js')}}"></script> 
+    <script src="{{asset('js/custom/loans2.js')}}"></script> 
  

@@ -39,7 +39,7 @@ $('#save_loans').on('click',function(){
 
     };
     $.ajax({
-        url: "loans",
+        url: BASE_URL+"loans",
         method: "POST",
         dataType:"json",
         data:data 
@@ -110,7 +110,7 @@ function caculateMonth(){
 
 function transacctionType(){ 
    $.ajax({
-        url: "utility/transacction_type",
+        url: BASE_URL+"utility/transacction_type",
         method: "GET",
         dataType:"json" 
     }).done(function(result) {  
@@ -128,7 +128,7 @@ function transacctionType(){
 
 function getLoans(id){ 
    $.ajax({
-        url: "loans/get_loans",
+        url: BASE_URL+"loans/get_loans",
         method: "GET",
         dataType:"json",
         data:{id:id} 
@@ -157,7 +157,7 @@ function getLoans(id){
 function getLoansDetails(id){ 
     var amotization =0;
    $.ajax({
-        url: "loans/get_loans_detail",
+        url: BASE_URL+"loans/get_loans_detail",
         method: "GET",
         dataType:"json",
         data:{id:id} 
