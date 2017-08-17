@@ -164,7 +164,6 @@ function getLoansDetails(id){
     }).done(function(result){
         var fi = new Date();   
         var amotization = result.solicituded_stock - ((result.cuotes / result.no_pay) * result.cuotes_paid);
-                  
         $('#date_init_loans_show').html(result.fecha_ini);
         $('#date_final_loans_show').html(result.fecha_fin);
         $('#solicituded_stock_show').html(result.solicituded_stock);

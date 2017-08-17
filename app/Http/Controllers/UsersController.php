@@ -54,6 +54,7 @@ class UsersController extends Controller
                 {
                     $user->password = Hash::make($r->password);
                 } 
+                $user->remember_token = '';
                 $user->state = $r->state;
                 $user->id_client = $r->id_client;
                 $user->level = $r->level; 
@@ -65,6 +66,7 @@ class UsersController extends Controller
                 $user = new  User(); 
                 $user->id_client = $r->id_client;
                 $user->username = $r->username;
+                $user->remember_token = '';
                 $user->password = Hash::make($r->password);
                 $user->state = $r->state;
                 $user->level = $r->level; 

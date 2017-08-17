@@ -2,21 +2,20 @@
 
 namespace App\Http\Controllers; 
 use  App\Models\Client;
+use  App\Models\Loans;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
  
 
 class ClientController extends Controller
 {
-    private $variables = [] ;
-
-
+    private $variables = [] ; 
     function __construct(){
       $this->middleware('auth');
       $this->variables = [
              'titulo' => 'Cliente',
              'favicon' => 'fav.ico',
-             'user' => 'Admin',
+             'user' => '',
              'clientclass' => 'class="active-menu"'
          ];
          
@@ -36,7 +35,10 @@ class ClientController extends Controller
 
      
      public function dashboard(){  
-         return Client::paginate(10);
+          $user = Auth::user();
+          $this->variables['client'] = Client::find($user->id_client) ;
+          $this->variables['loans'] =  Loans::where('id_client',$user->id_client)->get();
+          return view('client/index',$this->variables);
      }
 
      public function search(){  

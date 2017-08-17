@@ -27,7 +27,7 @@ Route::get('/client', 'ClientController@index' );
 
 Route::get('/logout', 'LoginController@logout' ); 
 Route::get('/login', 'LoginController@index' )->name('login'); 
-Route::post('/login/acceder', 'LoginController@login' )->name('login'); 
+Route::post('/login/acceder', 'LoginController@login' ); 
 
 
 Route::get('/dashboard/Client', 'ClientController@dashboard' ); 

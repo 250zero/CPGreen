@@ -7,7 +7,7 @@ function getProfile(id){
    $('.modal-title').html('');
    $("#header_loans tbody").html('');
    $.ajax({
-        url: "client/profile",
+        url: BASE_URL+"client/profile",
         method: "GET",
         dataType:"json",
         data:{id:id}
@@ -48,7 +48,7 @@ function save(){
         stock:$("#stock").val() 
     }; 
    $.ajax({
-        url: "client/save",
+        url: BASE_URL+"client/save",
         method: "POST",
         dataType:"json",
         data:data

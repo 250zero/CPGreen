@@ -19,7 +19,7 @@ class ClientTable extends Migration
             $table->string('name',40);
             $table->string('telephone',55);
             $table->string('account',55);  
-            $table->float('stock',8,2);
+            $table->string('stock',100);
             $table->timestamps();
         });
     }
