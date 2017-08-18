@@ -10,7 +10,10 @@
     <link href="{{asset('css/custom.css')}}" rel="stylesheet" />
     <link href="{{asset('css/font-awesome.css')}}" rel="stylesheet" />
     <link href="{{asset('css/toastr.min.css')}}" rel="stylesheet" />
-     <!-- FONTAWESOME STYLES-->   
+     <!-- FONTAWESOME STYLES--> 
+     <script>
+        var BASE_URL = '{{url('/')}}/';
+    </script>  
 </head> 
 <body>
 <div id="wrapper">

@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers; 
+use Illuminate\Support\Facades\DB;
  
 
 class HomeController extends Controller
@@ -13,7 +14,10 @@ class HomeController extends Controller
              'titulo' => 'Inicio',
              'favicon' => 'fav.ico',
              'user' => 'Admin',
-             'homeclass' => 'class="active-menu"'
+             'homeclass' => 'class="active-menu"',
+             'totalCliente'=>DB::table('client')->count(),
+             'totalSavings'=>DB::table('client')->select(DB::raw('sum(stock) as totalStock'))->first(),
+             'totalLoans'=>DB::table('loans_header')->select(DB::raw('sum(solicituded_stock) as totalSolicitaded'))->first(),
          ];
     }
 

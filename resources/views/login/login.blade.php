@@ -12,6 +12,7 @@
   background: #FFFFFF;
   max-width: 360px;
   margin: 0 auto 100px;
+  border-radius:5px;
   padding: 45px;
   text-align: center;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
@@ -105,15 +106,14 @@ $('.message a').click(function(){
    $('form').animate({height: "toggle", opacity: "toggle"}, "slow");
 });
 </script>
-<div class="login-page">
+<div class="login-page" style="margin-top: 10%;">
   <div class="form">
      
     <form class="login-form" method="post" action="login/acceder">
      {{ csrf_field() }}
-      <input type="text" placeholder="username" name="username"/>
-      <input type="password" placeholder="password" name="password"/>
+      <input type="text" placeholder="Nombre de usuario" name="username" autocomplete="false" autofocus="true"/>
+      <input type="password" placeholder="Contraseña" name="password"/>
       <button>Acceder</button>
-      
     </form>
   </div>
 </div>
