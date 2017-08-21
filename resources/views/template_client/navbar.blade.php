@@ -10,10 +10,10 @@
                     <?php
                     $user = Auth::user();
 ?>
-                    {{$user->username}}</a> 
+                    {{ucwords($user->username)}}</a> 
             </div>
   <div style="color: white;
 padding: 15px 50px 5px 50px;
 float: right;
-font-size: 16px;">  <a href="{{url('/')}}/logout" class="btn btn-warning square-btn-adjust">Logout</a> </div>
+font-size: 16px;">  <a href="{{url('/')}}/logout" class="btn btn-warning square-btn-adjust">Salir</a> </div>
         </nav>   

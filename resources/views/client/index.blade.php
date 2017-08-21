@@ -4,7 +4,7 @@
  <?php
 if(!empty($client))
 {
-    
+    // dd($client);
 ?>
     <div id="page-wrapper" >
             <div id="page-inner">
@@ -12,9 +12,11 @@ if(!empty($client))
                             <div class="row">
                                     <div class="col-sm-12">
                                         <div class="col-sm-6">
-                                                <h3>Bienvenido {{$client->name}}</h3>
+                                                <h2>Bienvenido {{ucwords($client->name)}}</h2>
+                                                <p>Usted dispone de un capital de {{number_format($client->stock)}}$ pesos, al momento puede disponer para prestamos {{number_format($client->stock*2)}}$ pesos</p>
                                         </div>
                                          <div class="col-sm-6"> 
+                                             
                                         </div>
                                     </div>
                             </div>
@@ -30,8 +32,8 @@ if(!empty($client))
                                                         <tr>
                                                                 <th>Fecha Inicio</th>
                                                                 <th>Fecha Fin</th>
-                                                                <th>Cuotas</th>
-                                                                <th>Cuotas Restantes</th>
+                                                                <th>No. Cuotas</th>
+                                                                <th>% interes</th>
                                                                 <th>Capital Solicitado</th>
                                                         </tr>
                                                     </thead>
@@ -40,9 +42,9 @@ if(!empty($client))
                                                             <tr onclick="getLoansDetails({{ $l->id_loans_header }})" >
                                                                 <td>{{ $l->fecha_ini }}</td>
                                                                 <td>{{ $l->fecha_fin }}</td>
-                                                                <td>{{ $l->cuotes }}</td>
-                                                                <td>{{ $l->rest_cuotes }}</td>
-                                                                <td>{{ $l->solicituded_stock }}</td>
+                                                                <td>{{ $l->no_pay }}</td>
+                                                                <td>{{ $l->porcetange }}</td>
+                                                                <td>{{ number_format($l->solicituded_stock) }}</td>
                                                             </tr>
                                                         @endforeach 
                                                     </tbody>
@@ -57,36 +59,36 @@ if(!empty($client))
                                                                             display:none;
                                                                         "> 
                                                                                     <br>
-                                                                                    <label >Fecha Inicio :</label>
+                                                                                    <label >Fecha Inicio         :</label>
                                                                                     <label id="date_init_loans_show" ></label>
                                                                                     <br>
-                                                                                    <label >Fecha Fin :</label>
+                                                                                    <label >Fecha Fin            :</label>
                                                                                     <label id="date_final_loans_show" ></label>
                                                                                     <br>
-                                                                                    <label >Capital :</label>
+                                                                                    <label >Capital  solicitado   :</label>
                                                                                     <label id="solicituded_stock_show" ></label>
                                                                                     <br> 
-                                                                                    <label >Numero de Cuotas :</label>
+                                                                                    <label >Numero de Cuotas     :</label>
                                                                                     <label id="number_cuotes_show" ></label>
                                                                                     <br>
 
-                                                                                    <label >Cuotas :</label>
+                                                                                    <label >Pago de Cuotas       :</label>
                                                                                     <label id="cuotes_show" ></label>
                                                                                     <br>
 
-                                                                                    <label >Cuotas Pagadas :</label>
+                                                                                    <label >Cuotas Pagadas       :</label>
                                                                                     <label id="paid_cuotes_show" ></label>
                                                                                     <br>
 
-                                                                                    <label >Cuotas Faltantes :</label>
+                                                                                    <label >Cuotas Faltantes      :</label>
                                                                                     <label id="rest_cuotes_show" ></label>
                                                                                     <br>
 
-                                                                                    <label >% Interes :</label>
+                                                                                    <label >Porciento de  Interes :</label>
                                                                                     <label id="porcentage_cuotes_show" ></label>
                                                                                     <br>
 
-                                                                                    <label >Capital Amortizado :</label>
+                                                                                    <label >Capital Amortizado    :</label>
                                                                                     <label id="stock_amortization_show" ></label>
                                                                                  
                                                </div>
@@ -108,15 +110,7 @@ if(!empty($client))
 
     <?php
     }//fin del if 
-    if(empty($user)){
-?>
-<div id="page-wrapper" >
-            <div id="page-inner">
-                <h1>No hay Información de cliente.</h1>
-            </div>
-</div>    
-<?php
-    }
+     
 ?>
          <!-- /. PAGE WRAPPER  -->
  

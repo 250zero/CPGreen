@@ -12,7 +12,7 @@
                     <i class="fa fa-users"></i>
                 </span>
                 <div class="text-box" >
-                    <p class="main-text">{{number_format($totalCliente)}} Clientes</p>
+                    <p class="main-text">Total de Clientes: {{number_format($totalCliente)}}</p>
                     <!-- <p class="text-muted">Remaining</p> -->
                 </div>
              </div>
@@ -23,7 +23,8 @@
                     <i class="fa fa-money"></i>
                 </span>
                 <div class="text-box" >
-                    <p class="main-text">{{number_format($totalSavings->totalStock)}}$ Ahorros</p>
+                    <p class="main-text">Capital Acululado por Cliente:
+                         {{number_format($totalSavings->totalStock)}}$</p>
                     <!-- <p class="text-muted">Notifications</p> -->
                 </div>
              </div>
@@ -34,7 +35,7 @@
                     <i class="fa fa-rocket"></i>
                 </span>
                 <div class="text-box" >
-                    <p class="main-text">{{number_format($totalLoans->totalSolicitaded)}}$ Prestamos</p>
+                    <p class="main-text">Total en prestamos a recibir: {{number_format($totalLoans->totalSolicitaded)}}$</p>
                     <!-- <p class="text-muted">Pending</p> -->
                 </div>
              </div>
