@@ -150,9 +150,9 @@ function getLoans(id){
                    html += '<td>'+this.fecha_ini+'</td>'; 
                    html += '<td>'+this.fecha_fin+'</td>'; 
                    html += '<td>'+this.porcetange+'</td>'; 
-                   html += '<td>'+this.cuotes+'</td>'; 
-                   html += '<td>'+this.solicituded_stock+'</td>'; 
-                   html += '<td>'+amotization+'</td>'; 
+                   html += '<td>'+this.cuotes+' $</td>'; 
+                   html += '<td>'+this.solicituded_stock+' $</td>'; 
+                   html += '<td>'+amotization+' $</td>'; 
                    html += '</tr>' ; 
         });   
         $("#header_loans tbody").html(html);
@@ -204,13 +204,13 @@ function getLoansDetails(id){
         $('#date_init_loans_show').html(result.fecha_ini);
         $('#id_realizar_pago').val(result.id_loans_header);
         $('#date_final_loans_show').html(result.fecha_fin);
-        $('#solicituded_stock_show').html(result.solicituded_stock);
+        $('#solicituded_stock_show').html(result.solicituded_stock+'$');
         $('#number_cuotes_show').html(result.no_pay);
         $('#cuotes_show').html(result.cuotes);
         $('#paid_cuotes_show').html(result.cuotes_paid);
         $('#rest_cuotes_show').html(result.rest_cuotes);
         $('#porcentage_cuotes_show').html(result.porcetange);
-        $('#stock_amortization_show').html(amotization);
+        $('#stock_amortization_show').html(amotization+'$');
         $('.modal3-title').html('Prestamo :: '+result.id_loans_header);
         getLoansDetailsTransacction();
         $('#LoansModalDetail').modal('show');
@@ -231,7 +231,7 @@ function getLoansDetailsTransacction( ){
             html += '<tr >';
             html += '<td>'+this.date_transacction+'</td>'; 
             html += '<td>'+this.comments+'</td>'; 
-            html += '<td>'+this.value+'</td>';  
+            html += '<td>'+this.value+'$</td>';  
             html += '</tr>' ; 
         });   
         $("#loans_transaction_table tbody").html(html); 
