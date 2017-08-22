@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers; 
 use  App\Models\Loans; 
+use  App\Models\Transaction;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
+use Carbon\Carbon;
 
 class LoanController extends Controller
 { 
@@ -19,6 +23,31 @@ class LoanController extends Controller
          ];
     }
 
+    public function payLoans(Request $r){
+            if(!$r->has('id')){
+                return ['msn'=>'Este prestamo no contiene identificador','status'=>0];
+            }
+            $user = Auth::user();
+            $loans = Loans::where('id_loans_header',$r->id)->first();
+            $rest_cuotes = $loans->rest_cuotes - 1;
+            $no_pay = $loans->no_pay - 1;
+            $cuotes_paid = $loans->cuotes + $loans->cuotes_paid;
+            $rest_cuotes = ( ($loans->solicituded_stock * ( $loans->porcetange / 100 ) ) + $loans->solicituded_stock ) - $loans->cuotes;
+            Loans::where('id_loans_header',$r->id)->update([
+                'rest_cuotes'=>$rest_cuotes,
+                'no_pay'=>$no_pay,
+                'cuotes_paid'=>$cuotes_paid                
+            ]);
+            Transaction::insert([
+                'id_product'=>$r->id,
+                'value'=>$loans->cuotes,
+                'comments'=>'Pago de cuota al prestamo No.'.$r->id.', quedando restante '.$rest_cuotes,
+                'date_transacction'=>Carbon::now(-4),
+                'id_user'=>$user->id_user 
+            ]);
+            return ['msn'=>'Transaccion exitosa','status'=>1];
+
+    }
      public function index(){ 
          
          return view('backend/loan',$this->variables);
@@ -49,7 +78,7 @@ class LoanController extends Controller
         $loans->no_pay= $r->cuotes;  
         $loans->cuotes= $r->cuotes_paid;  
         if($r->id_loans <=0){ 
-            $loans->rest_cuotes= 0;  
+            $loans->rest_cuotes= (($r->solicituded_stock * ($r->interest/100)) +  $r->solicituded_stock)  ;  
             $loans->cuotes_paid= 0;  
         }
         $loans->porcetange= $r->interest;  

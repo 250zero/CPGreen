@@ -136,18 +136,45 @@ function getLoans(id){
         var html = '';
         var amotization = '';
         $(result).each(function(){ 
-                   amotization = this.solicituded_stock - ((this.cuotes / this.no_pay) * this.cuotes_paid);
+                   amotization =  this.solicituded_stock -   (this.cuotes_paid  - ( this.cuotes_paid *(this.porcetange / 100)))  ;
                    html += '<tr onclick="getLoansDetails('+this.id_loans_header+')">';
                    html += '<td>'+this.fecha_ini+'</td>'; 
                    html += '<td>'+this.fecha_fin+'</td>'; 
                    html += '<td>'+this.porcetange+'</td>'; 
                    html += '<td>'+this.cuotes+'</td>'; 
+                   html += '<td>'+this.solicituded_stock+'</td>'; 
                    html += '<td>'+amotization+'</td>'; 
                    html += '</tr>' ; 
         });   
         $("#header_loans tbody").html(html);
     });
 }
+
+
+$('#realizar_pago').on('click',function(){
+    make_pay();
+});
+
+
+function make_pay(){ 
+    $.ajax({
+         url: BASE_URL+"loans/pay",
+         method: "POST",
+         dataType:"json",
+         data:{
+             id:$('#id_realizar_pago').val(), 
+         _token:$('input[name=_token]').val()
+            } 
+     }).done(function(result){  
+         if(result.status > 0){
+            toastr.success(result.msn, 'Exito!!'); 
+            $('#LoansModalDetail').modal('hide');
+            return 0;
+         }
+         toastr.warning(result.msn, 'Advertencia');
+
+     });
+ }
 
 
 
@@ -163,8 +190,9 @@ function getLoansDetails(id){
         data:{id:id} 
     }).done(function(result){
         var fi = new Date();   
-        var amotization = result.solicituded_stock - ((result.cuotes / result.no_pay) * result.cuotes_paid);
+        var amotization =  result.solicituded_stock -   (result.cuotes_paid  - ( result.cuotes_paid *(result.porcetange / 100)))  ;
         $('#date_init_loans_show').html(result.fecha_ini);
+        $('#id_realizar_pago').val(result.id_loans_header);
         $('#date_final_loans_show').html(result.fecha_fin);
         $('#solicituded_stock_show').html(result.solicituded_stock);
         $('#number_cuotes_show').html(result.no_pay);

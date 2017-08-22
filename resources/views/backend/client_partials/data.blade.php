@@ -42,6 +42,7 @@
                         <th>Fecha Final</th>  
                         <th>Porciento</th>
                         <th>Cuotas</th>
+                        <th>Capital Solicitado</th> 
                         <th>Capital Amortizado</th> 
                     </tr>
                 </thead>

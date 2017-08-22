@@ -14,7 +14,7 @@
                <label >Fecha Fin :</label>
                <label id="date_final_loans_show" ></label>
                <br>
-               <label >Capital :</label>
+               <label >Capital Solicitado:</label>
                <label id="solicituded_stock_show" ></label>
                <br> 
                <label >Numero de Cuotas :</label>
@@ -40,8 +40,8 @@
                <label >Capital Amortizado :</label>
                <label id="stock_amortization_show" ></label>
                <br> <br>
-               <button class="btn btn-warning">Hacer Pago</button>
-               <br> <br> <button class="btn btn-danger">Eliminar Prestamo</button>
+               <button class="btn btn-warning" id="realizar_pago">Hacer Pago</button> 
+               <input type="hidden" value="0" class="btn btn-warning" id="id_realizar_pago"> 
             </div>  
         <div class='col-sm-8'>
             <table id="loans_transaction_table" class="table table-striped table-bordered table-hover" >

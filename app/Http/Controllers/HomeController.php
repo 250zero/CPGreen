@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers; 
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
  
 
 class HomeController extends Controller
@@ -10,6 +11,7 @@ class HomeController extends Controller
 
 
     function __construct(){
+        $this->middleware('auth');
         $this->variables = [
              'titulo' => 'Inicio',
              'favicon' => 'fav.ico',
