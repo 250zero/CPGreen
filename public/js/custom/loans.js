@@ -98,6 +98,15 @@ $('#calculate_loans').on('click',function(){
         html += '<td>'+Math.round(amotization)+'</td>';
         html += '</tr>'; 
     }
+
+    html += '<tr>';
+    html += '<td><b>Total</b></td>';
+    html += '<td>'+Math.round(((stock) * (int/100)) + Math.abs(stock * 1 ))+'</td>';
+    html += '<td>'+Math.round((stock) * (int/100))+'</td>';
+    html += '<td>'+Math.round(stock )+'</td>';
+    html += '<td>'+Math.round(stock_live )+'</td>';
+    html += '<td>'+Math.round(amotization)+'</td>';
+    html += '</tr>'; 
     
     $('#loans_amortization_table tbody').html(html);
 
