@@ -16,7 +16,7 @@ function getLoansDetails(id){
         data:{id:id} 
     }).done(function(result){
         var fi = new Date();   
-        var amotization = result.solicituded_stock - ((result.cuotes / result.no_pay) * result.cuotes_paid);
+        var amotization =  result.solicituded_stock -   (result.cuotes_paid  - ( result.cuotes_paid *(result.porcetange / 100)))  ; 
         $('#date_init_loans_show').html(result.fecha_ini);
         $('#date_final_loans_show').html(result.fecha_fin);
         $('#solicituded_stock_show').html(Math.round(result.solicituded_stock));

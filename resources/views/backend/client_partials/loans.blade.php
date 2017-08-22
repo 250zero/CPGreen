@@ -43,8 +43,8 @@
                <button class="btn btn-warning" id="realizar_pago">Hacer Pago</button> 
                <input type="hidden" value="0" class="btn btn-warning" id="id_realizar_pago"> 
             </div>  
-        <div class='col-sm-8'>
-            <table id="loans_transaction_table" class="table table-striped table-bordered table-hover" >
+        <div class='col-sm-8' style="overflow:auto;height: 450px;" >
+            <table id="loans_transaction_table" class="table table-striped table-bordered table-hover"  >
                 <thead>
                     <tr>
                         <th>Fecha</th>
@@ -52,6 +52,7 @@
                         <th>Monto</th>
                     </tr>
                 </thead>
+                <tbody></tbody>
             </table>
             </div>  
       </div>

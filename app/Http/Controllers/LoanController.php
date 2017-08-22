@@ -41,12 +41,19 @@ class LoanController extends Controller
             Transaction::insert([
                 'id_product'=>$r->id,
                 'value'=>$loans->cuotes,
-                'comments'=>'Pago de cuota al prestamo No.'.$r->id.', quedando restante '.$rest_cuotes,
+                'comments'=>'Pago de cuota al prestamo No.'.$r->id.', quedando por pagar un restante de '.$rest_cuotes,
                 'date_transacction'=>Carbon::now(-4),
                 'id_user'=>$user->id_user 
             ]);
             return ['msn'=>'Transaccion exitosa','status'=>1];
 
+    }
+
+    public function getTransactionLoans(Request $r){
+        if(!$r->has('id')){
+            return ['msn'=>'Este prestamo no contiene identificador','status'=>0];
+        }
+        return  Transaction::where('id_product',$r->id)->get();
     }
      public function index(){ 
          

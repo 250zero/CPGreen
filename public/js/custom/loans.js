@@ -169,6 +169,7 @@ function make_pay(){
          if(result.status > 0){
             toastr.success(result.msn, 'Exito!!'); 
             $('#LoansModalDetail').modal('hide');
+            getLoans($('#id_client').val());
             return 0;
          }
          toastr.warning(result.msn, 'Advertencia');
@@ -202,7 +203,28 @@ function getLoansDetails(id){
         $('#porcentage_cuotes_show').html(result.porcetange);
         $('#stock_amortization_show').html(amotization);
         $('.modal3-title').html('Prestamo :: '+result.id_loans_header);
+        getLoansDetailsTransacction();
         $('#LoansModalDetail').modal('show');
     });
 }
  
+
+function getLoansDetailsTransacction( ){    
+   $.ajax({
+        url: BASE_URL+"loans/getTransactionLoans",
+        method: "GET",
+        dataType:"json",
+        data:{
+            id:$('#id_realizar_pago').val()} 
+    }).done(function(result){
+        var html='';
+        $(result).each(function(){  
+            html += '<tr >';
+            html += '<td>'+this.date_transacction+'</td>'; 
+            html += '<td>'+this.comments+'</td>'; 
+            html += '<td>'+this.value+'</td>';  
+            html += '</tr>' ; 
+        });   
+        $("#loans_transaction_table tbody").html(html); 
+    });
+}

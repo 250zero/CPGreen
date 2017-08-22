@@ -35,6 +35,7 @@ Route::get('/dashboard/Client', 'ClientController@dashboard' );
 Route::post('/loans', 'LoanController@save' );
 Route::get('/loans/get_loans','LoanController@getLoans');
 Route::post('/loans/pay','LoanController@payLoans');
+Route::get('loans/getTransactionLoans','LoanController@getTransactionLoans');
 Route::get('/loans/get_loans_detail','LoanController@getLoansDetail');
 
 Route::get('/users', 'UsersController@index' );

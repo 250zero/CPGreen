@@ -32,10 +32,10 @@
 
       </div> 
       <div class="row"> 
-            <div class="col-sm-12"> 
+            <div class="col-sm-12" style="overflow:auto;height: 250px;" > 
                 <h3>Prestamos  <button class="btn btn-primary" id="add_loans"><li class="fa fa-plus  "></li></button></h3> 
                
-                <table id="header_loans" class="table table-striped table-bordered table-hover">
+                <table id="header_loans" class="table table-striped table-bordered table-hover" >
                   <thead>
                         <tr>
                         <th>Fecha Inicio</th>
