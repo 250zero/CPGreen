@@ -29,7 +29,7 @@
                <label id="paid_cuotes_show" ></label>
                <br>
 
-               <label >Cuotas Faltantes :</label>
+               <label >Restante :</label>
                <label id="rest_cuotes_show" ></label>
                <br>
 
